@@ -12,16 +12,38 @@ public class PlayerController : MonoBehaviour
     bool _moveToDest = false;
     Vector3 _destPos;
 
+    Animator anim;
+
     void Start()
     {
         Managers.input.KeyAction -= OnKeyboard; // 구독취소
         Managers.input.KeyAction += OnKeyboard; // 구독신청
         Managers.input.MouseAction -= OnMouseClicked;
         Managers.input.MouseAction += OnMouseClicked;
+
+        anim = GetComponent<Animator>();
+        anim.SetFloat("wait_run_ratio", 0.5f);
     }
+
+    float wait_run_ratio;
 
     void Update()
     {
+        if (_moveToDest)
+        {
+            wait_run_ratio = Mathf.Lerp(wait_run_ratio, 1, 10.0f * Time.deltaTime);
+            anim.SetFloat("wait_run_ratio", wait_run_ratio);
+            anim.Play("WAIT_RUN");
+        }
+        else
+        {
+            wait_run_ratio = Mathf.Lerp(wait_run_ratio, 0, 10.0f * Time.deltaTime);
+            anim.SetFloat("wait_run_ratio", wait_run_ratio);
+            anim.Play("WAIT_RUN");
+        }
+
+
+
         if (_moveToDest)
         {
             Vector3 dir = _destPos - transform.position;
@@ -72,20 +94,41 @@ public class PlayerController : MonoBehaviour
 
     void OnMouseClicked(Define.MouseEvent evt)
     {
-        if (evt != Define.MouseEvent.Click)
-        {
-            return;
-        }
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Wall")))
+
+        switch (evt)
         {
-            _destPos = hit.point;
-            _moveToDest = true;
+            case Define.MouseEvent.Click:
+                return;
+                break;
+
+            case Define.MouseEvent.Press:
+                if (Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Wall")))
+                {
+                    _destPos = hit.point;
+                    _moveToDest = true;
+                }
+                break;
+
+            default:
+                break;
         }
 
-        Debug.Log("OnMouseClicked");
+        //if (evt != Define.MouseEvent.Click)
+        //{
+        //    return;
+        //}
+
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hit;
+        //if (Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Wall")))
+        //{
+        //    _destPos = hit.point;
+        //    _moveToDest = true;
+        //}
+
+        //Debug.Log("OnMouseClicked");
 
     }
 

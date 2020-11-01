@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class InputManager
 {
-    public Action KeyAction = null;
-    public Action<Define.MouseEvent> MouseAction = null;
+    public Action KeyAction = null; 
+    public Action<Define.MouseEvent> MouseAction = null; 
 
     bool _isPressed = false;
 
     public void OnUpdate()
     {
-        if (Input.anyKey && KeyAction != null)
+        if (Input.anyKey && KeyAction != null) // 구독한 사람이 있다면.
         {
             KeyAction.Invoke();
         }
 
-        if (MouseAction != null)
+        if (MouseAction != null) // 구독한 사람이 있다면.
         {
             if(Input.GetMouseButton(0))
             {
