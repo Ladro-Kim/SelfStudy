@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Define
 {
+    public enum Scene
+    {
+        Unkown,
+        Login,
+        Loby,
+        Game,
+    }
+
     public enum MouseEvent
     {
         Press,

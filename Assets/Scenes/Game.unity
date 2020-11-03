@@ -568,10 +568,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8711189422565144807, guid: a24ef1052f189314895ec335ffba6ed9,
+        type: 3}
+      propertyPath: m_Name
+      value: PointButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711189422716410515, guid: a24ef1052f189314895ec335ffba6ed9,
+        type: 3}
+      propertyPath: m_Name
+      value: PointText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711189423112012684, guid: a24ef1052f189314895ec335ffba6ed9,
+        type: 3}
+      propertyPath: m_Name
+      value: ScoreText
+      objectReference: {fileID: 0}
     - target: {fileID: 8711189423516562616, guid: a24ef1052f189314895ec335ffba6ed9,
         type: 3}
       propertyPath: m_Name
       value: UI_Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711189423516562616, guid: a24ef1052f189314895ec335ffba6ed9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8711189423516562620, guid: a24ef1052f189314895ec335ffba6ed9,
         type: 3}
@@ -790,6 +810,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: unitychan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255648087208760593, guid: 8aca9643add26d54688b3371b4b6e4a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7255648087208986929, guid: 8aca9643add26d54688b3371b4b6e4a6,
         type: 3}
