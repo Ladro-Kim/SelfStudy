@@ -595,6 +595,7 @@ GameObject:
   - component: {fileID: 8711189423516562622}
   - component: {fileID: 8711189423516562623}
   - component: {fileID: 8711189423516562611}
+  - component: {fileID: 6010784769203624242}
   m_Layer: 5
   m_Name: UI_Button
   m_TagString: Untagged
@@ -696,5 +697,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7175dbcb4f9e5a94681f6d26b7457733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 8711189423112012674}
-  inputText: {fileID: 8711189422833040531}
+--- !u!114 &6010784769203624242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8711189423516562616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e914f90975634914db1111178f669408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -42,4 +42,17 @@ public class Utils
         return null;
 
     }
+
+    public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
+    {
+        T component = go.GetComponent<T>();
+        if (component == null)
+        {
+            go.AddComponent<T>();
+        }
+
+        return component;
+    }
+
+
 }
