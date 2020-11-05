@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 26055e26f15260e4e8e0e51f50c41926
 ModelImporter:
-  serializedVersion: 19301
+  serializedVersion: 19300
   internalIDToNameTable:
   - first:
       1: 100000
@@ -1809,9 +1809,6 @@ ModelImporter:
   - first:
       137: 13700038
     second: cheek
-  - first:
-      41386430: 2186277476908879412
-    second: ImportLogs
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -1869,14 +1866,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.41080567
-        functionName: OnRunEvent
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 10
-        messageOptions: 0
+      events: []
       transformMask:
       - path: 
         weight: 1
@@ -2193,7 +2183,6 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
-    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

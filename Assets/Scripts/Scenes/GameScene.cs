@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
-    public override void Clear()
-    {
-        // 신이 종료되었을 때 초기화하는 내용 넣을 것
-        throw new System.NotImplementedException();
-    }
-
     protected override void Init()
     {
         base.Init();
+
+        SceneType = Define.Scene.Game;
+
+        Managers.UI.ShowSceneUI<UI_Inven>();
+
+        Dictionary<int, Stat> dict = Managers.Data.StatDict;
     }
 
-    void Start()
-    {
-        Init();
-    }
-
-    void Update()
+    public override void Clear()
     {
         
     }

@@ -6,39 +6,38 @@ using UnityEngine.EventSystems;
 
 public class InputManager
 {
-    public Action KeyAction = null; 
-    public Action<Define.MouseEvent> MouseAction = null; 
+    public Action KeyAction = null;
+    public Action<Define.MouseEvent> MouseAction = null;
 
-    bool _isPressed = false;
+    bool _pressed = false;
 
     public void OnUpdate()
     {
         if (EventSystem.current.IsPointerOverGameObject())
-        {
             return;
-        }
 
-        if (Input.anyKey && KeyAction != null) // 구독한 사람이 있다면.
-        {
-            KeyAction.Invoke();
-        }
+        if (Input.anyKey && KeyAction != null)
+				KeyAction.Invoke();
 
-        if (MouseAction != null) // 구독한 사람이 있다면.
+        if (MouseAction != null)
         {
-            if(Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0))
             {
                 MouseAction.Invoke(Define.MouseEvent.Press);
-                _isPressed = true;
+                _pressed = true;
             }
             else
             {
-                if (_isPressed)
-                {
+                if (_pressed)
                     MouseAction.Invoke(Define.MouseEvent.Click);
-                }
-                _isPressed = false;
+                _pressed = false;
             }
         }
+    }
 
+    public void Clear()
+    {
+        KeyAction = null;
+        MouseAction = null;
     }
 }

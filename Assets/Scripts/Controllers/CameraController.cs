@@ -2,43 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class CameraController : MonoBehaviour
 {
-    public Define.CameraMode _mode = Define.CameraMode.QuaterView;
-    public Vector3 _delta = new Vector3(0, 6, -5);
-    public GameObject player = null;
+    [SerializeField]
+    Define.CameraMode _mode = Define.CameraMode.QuarterView;
 
-    void Update()
+    [SerializeField]
+    Vector3 _delta = new Vector3(0.0f, 6.0f, -5.0f);
+
+    [SerializeField]
+    GameObject _player = null;
+
+    void Start()
     {
         
     }
 
     void LateUpdate()
-    {
-        if (_mode == Define.CameraMode.QuaterView)
+    { 
+        if (_mode == Define.CameraMode.QuarterView)
         {
             RaycastHit hit;
-            if (Physics.Raycast(player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall")))
+            if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall")))
             {
-                float dist = (hit.point - player.transform.position).magnitude * 0.8f;
-                transform.position = player.transform.position + _delta.normalized * dist;
+                float dist = (hit.point - _player.transform.position).magnitude * 0.8f;
+                transform.position = _player.transform.position + _delta.normalized * dist;
             }
             else
             {
-                transform.position = player.transform.position + _delta;
-                transform.LookAt(player.transform);
-            }
-        }
-
+				transform.position = _player.transform.position + _delta;
+				transform.LookAt(_player.transform);
+			}
+		}
     }
 
-    public void SetQuaterView(Vector3 delta)
+    public void SetQuarterView(Vector3 delta)
     {
-        _mode = Define.CameraMode.QuaterView;
+        _mode = Define.CameraMode.QuarterView;
         _delta = delta;
-
     }
-
 }
